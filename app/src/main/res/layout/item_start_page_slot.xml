@@ -41,7 +41,7 @@
             android:ellipsize="end"
             android:hyphenationFrequency="none"
             android:breakStrategy="simple"
-            android:textAppearance="@style/TextAppearance.RoadBrowser.TitleMedium"
+            android:textAppearance="@style/TextAppearance.PPBrowser.TitleMedium"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="@dimen/start_page_slot_title_min_size"
             app:autoSizeMaxTextSize="@dimen/start_page_slot_title_size"
@@ -55,7 +55,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textAppearance="@style/TextAppearance.RoadBrowser.BodySmall"
+            android:textAppearance="@style/TextAppearance.PPBrowser.BodySmall"
             android:textSize="@dimen/start_page_slot_label_size" />
     </LinearLayout>
 </FrameLayout>

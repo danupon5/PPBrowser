@@ -1,5 +1,13 @@
 # Changelog
 
+## PPBrowser 1.0.0 (based on RoadBrowser 2.4.0)
+
+- Renamed to PPBrowser, application ID `com.danupon.ppbrowser`, version numbering restarted at 1.0.0 (versionCode 1).
+- Removed the built-in GitHub updater and the `REQUEST_INSTALL_PACKAGES` permission; Check for Updates now opens Google Play.
+- Removed the FreeDroidWarn dialog and library, and the JitPack repository.
+- Release workflow now builds a signed Android App Bundle for Google Play internal testing.
+- Legal pages updated for private Google Play distribution, crediting the original RoadBrowser project.
+
 ## 2.4.0 - 2026-09-30
 
 Version code 13.
@@ -53,7 +61,7 @@ First release under the RoadBrowser name. Version code 10.
 
 ### Changed
 
-- Renamed and rebranded the app to **RoadBrowser** under the new package id `com.yashmaurya.roadbrowser`. New package id, so it installs as a fresh app.
+- Renamed and rebranded the app to **RoadBrowser** under the new package id `com.danupon.ppbrowser`. New package id, so it installs as a fresh app.
 - New app icon.
 - Car-first bottom toolbar: Back, Home, address pill, Reload, Bookmarks, Tabs (with count) and Menu sit along the bottom edge of the head-unit display with large touch targets.
 - Brave Search is now the default search engine, alongside Google and DuckDuckGo.

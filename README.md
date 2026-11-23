@@ -1,172 +1,81 @@
-# RoadBrowser
+# PPBrowser
 
-**A WebView browser built for Android Auto head units: big touch targets, a car-first toolbar, and video that keeps playing when Maps takes over the screen.**
+เว็บเบราว์เซอร์สำหรับ Android และ Android Auto (ดูวิดีโอบนจอรถตอนจอด) ใช้ส่วนตัว แจกผ่าน **Google Play Internal testing** เท่านั้น
 
-[![Android](https://img.shields.io/badge/Android-15%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.android.com/)
-[![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](LICENSE)
-[![Latest release](https://img.shields.io/github/v/release/Yash-v-maurya/RoadBrowser?style=for-the-badge&logo=github)](https://github.com/Yash-v-maurya/RoadBrowser/releases/latest)
+PPBrowser เป็นเวอร์ชันดัดแปลงจาก [RoadBrowser](https://github.com/Yash-v-maurya/RoadBrowser) ของ Yash V Maurya เผยแพร่ภายใต้ **GNU GPLv3** (ดู [LICENSE](LICENSE) และ [docs/legal/notices.md](docs/legal/notices.md))
 
 > [!WARNING]
-> **Parked use only.** If you are driving, do not look at this app. RoadBrowser is for passengers, charging stops and parked time. You are responsible for how you use it.
+> **ใช้ตอนจอดรถเท่านั้น** ห้ามดูหน้าจอขณะขับรถ Android Auto จะบังหน้าเบราว์เซอร์เมื่อรถเริ่มวิ่ง แต่เสียงยังเล่นต่อได้
 
----
+## สิ่งที่เปลี่ยนจาก RoadBrowser
 
-## Download
+- ชื่อแอปเป็น PPBrowser และ package name เป็น `com.danupon.ppbrowser`
+- ลบระบบดาวน์โหลดหรืออัปเดตแอปจาก GitHub (`REQUEST_INSTALL_PACKAGES`) ออก เพราะ Google Play ไม่อนุญาต ตอนนี้ปุ่ม "Check for Updates" จะเปิดหน้า Google Play แทน
+- ลบไลบรารี FreeDroidWarn และ repository JitPack ออก
+- เปลี่ยน build ให้ออกเป็นไฟล์ AAB ที่เซ็นแล้วสำหรับ Google Play (workflow ชื่อ "Release (Google Play AAB)")
+- หน้า Terms, Privacy และ Notices แก้ให้ตรงกับการแจกผ่าน Google Play และยังให้เครดิตผู้เขียนเดิม
+- เริ่มนับเวอร์ชันใหม่ที่ `1.0.0` (versionCode 1)
 
-- **Direct download (always the newest):** [RoadBrowser.apk](https://github.com/Yash-v-maurya/RoadBrowser/releases/latest/download/RoadBrowser.apk). Open this link on the phone and open the file.
-- **GitHub Releases:** every version, with notes, on the [releases page](https://github.com/Yash-v-maurya/RoadBrowser/releases).
-- **In-app updates:** Menu > Check for Updates > **Download and install**. The app downloads the official release, checks it is signed with the RoadBrowser key, and Android asks you to confirm.
-- **Obtainium (auto-updates):** install [Obtainium](https://github.com/ImranR98/Obtainium), then tap the button below to add RoadBrowser as a tracked app.
+## วิธี build และอัปโหลดขึ้น Google Play
 
-[<img src="https://github.com/user-attachments/assets/1551eaef-432d-4634-875c-f085870d00a1" alt="Get it on Obtainium" height="40">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22com.yashmaurya.roadbrowser%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FYash-v-maurya%2FRoadBrowser%22%2C%22author%22%3A%22Yash-v-maurya%22%2C%22name%22%3A%22RoadBrowser%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22sortMethodChoice%5C%22%3A%5C%22date%5C%22%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22releaseTitleAsVersion%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%22%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22allowInsecure%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22%5C%22%2C%5C%22refreshBeforeDownload%5C%22%3Afalse%2C%5C%22includeZips%5C%22%3Afalse%2C%5C%22zippedApkFilterRegEx%5C%22%3A%5C%22%5C%22%7D%22%2C%22overrideSource%22%3Anull%7D)
+### ครั้งแรก: ตั้งค่า GitHub secrets
+ไปที่ repo **Settings → Secrets and variables → Actions → New repository secret** แล้วเพิ่ม 4 ค่า:
 
-Requires **Android 15 or later** on the phone. No special installer is needed; it is a normal APK. On first launch the app asks you to accept the [Terms of Use](docs/legal/terms.md) and [Privacy Policy](docs/legal/privacy.md), then offers the Android Auto setup checklist.
+| Secret | ค่า |
+|---|---|
+| `RELEASE_KEYSTORE_BASE64` | ไฟล์ upload keystore (`.jks`) ที่แปลงเป็น base64 |
+| `RELEASE_STORE_PASSWORD` | รหัสผ่าน keystore |
+| `RELEASE_KEY_ALIAS` | `ppbrowser-upload` |
+| `RELEASE_KEY_PASSWORD` | รหัสผ่าน key |
 
----
+**ห้าม commit ไฟล์ keystore หรือรหัสผ่านลง git** (`.gitignore` กัน `*.jks` และ `*.keystore` ไว้แล้ว)
 
-## Features
+### Build ไฟล์ AAB
+1. ไปที่แท็บ **Actions → Release (Google Play AAB) → Run workflow**
+2. รอให้เสร็จ แล้วดาวน์โหลด artifact ชื่อ **PPBrowser-play-bundle** (ได้ไฟล์ zip ที่มี `PPBrowser-<version>-<code>.aab` อยู่ข้างใน)
 
-- **Car-first bottom toolbar.** Back, Home, address pill, Reload, Bookmarks, Tabs (with count) and Menu are always within thumb reach along the bottom of the head-unit display.
-- **Start page with quick links.** Up to six shortcut cards with cached site icons, a "resume last page" card and an optional custom background photo. Set a home page instead if you'd rather land on one site.
-- **Real tabs.** Up to eight tabs, an in-app tab switcher, pop-ups open as new tabs, and optional session restore on launch.
-- **Bookmarks.** Save the current page, manage bookmarks in-app, or share a link into RoadBrowser from any other app to bookmark it.
-- **Brave Search + Shields.** Brave Search is the default engine (Google and DuckDuckGo are also available). Shields blocks known ad and tracker domains with a bundled blocklist and shows a live blocked count in Settings.
-- **YouTube compatibility mode.** Forces the mobile YouTube interface and keeps playback-critical requests unblocked so videos load reliably.
-- **Background audio playback.** Video and audio keep playing when the browser is not in the foreground, for example while Maps or the launcher is shown. A page shim keeps `document.hidden` reporting "visible" so sites like YouTube don't pause themselves.
-- **Android Auto media screen.** RoadBrowser also shows up in Android Auto's media section, which stays usable while the car moves. It lists the page you last played, your quick links and your bookmarks; picking one plays it in the background with nothing shown on the car screen.
-- **MediaSession foreground service.** While something is playing, RoadBrowser holds a real media session. Steering-wheel next/previous/play/pause buttons and the phone's media notification control the page, and the OS won't freeze the browser once Maps has covered it for a while.
-- **Desktop / mobile user agent.** Toggle desktop mode per session, and pick between an Android Chrome or Safari identity in Settings.
-- **Voice input.** Web pages that use the Web Speech API get the phone's speech recognizer, with per-host microphone permission prompts.
-- **SSL and cleartext handling.** Certificate problems show a clear warning with the reason and a "go back" default; plain-HTTP sites ask before loading.
-- **Light, dark and auto themes.** A cream light theme by default, a warm charcoal dark theme, Overpass typography throughout, plus an optional beta setting that asks WebView to darken web pages algorithmically.
-- **Global display scale** (40 to 200 percent) so the UI and page content fit your screen.
-- **Fullscreen and DRM video.** Fullscreen playback survives brief focus loss, and Widevine L3 protected content works.
-- **No analytics, no telemetry.** Nothing phones home; the only traffic is the pages you open and their icons. See the [Privacy Policy](docs/legal/privacy.md).
+### อัปโหลดเข้า Internal testing (ครั้งแรก)
+1. ใน Play Console กด **Create app** ตั้งชื่อ PPBrowser เลือก App, Free
+2. ไปที่ **Testing → Internal testing → Testers** สร้าง email list แล้วใส่อีเมล Google ของคุณและของแฟน
+3. **Create new release** ระบบจะถามเรื่อง Play App Signing ให้กด **ใช้ Google-generated key** (ค่าเริ่มต้น) แล้วอัปโหลดไฟล์ `.aab`
+4. กรอกส่วน **App content** ให้ครบ:
+   - **Privacy policy:** ต้องมี URL สาธารณะ เพราะแอปขอสิทธิ์ไมโครโฟนและตำแหน่ง ใช้เนื้อหาจาก [docs/legal/privacy.md](docs/legal/privacy.md) ไปลงที่ Google Sites หรือหน้าเว็บสาธารณะใดก็ได้
+   - **Data safety:** แอปไม่เก็บและไม่ส่งข้อมูลผู้ใช้ไปที่ใด
+   - **Ads:** ไม่มีโฆษณา
+   - **Target audience:** 18 ปีขึ้นไป
+   - กรอก **Content rating** questionnaire ให้ครบ
+5. กด **Review release → Start rollout to Internal testing**
+6. คัดลอก **opt-in link** จากแท็บ Testers ส่งให้ตัวเองและแฟน เปิดลิงก์บนมือถือด้วยบัญชีที่อยู่ในรายชื่อ กด Accept แล้วติดตั้งจาก Play Store
 
----
+**อย่ากด promote ไป Production** แอปจะยังเป็นส่วนตัวอยู่ตราบที่อยู่แค่ใน Internal testing
 
-## Install & show it in Android Auto
+### ออกเวอร์ชันใหม่
+1. แก้ `versionCode` (ต้องเพิ่มขึ้นทุกครั้ง) และ `versionName` ใน `app/build.gradle.kts`
+2. รัน workflow **Release (Google Play AAB)** อีกครั้ง
+3. ใน Play Console ไปที่ Internal testing → **Create new release** แล้วอัปโหลดไฟล์ `.aab` ใหม่ มือถือทุกเครื่องในรายชื่อจะได้อัปเดตผ่าน Play Store
 
-1. Download `RoadBrowser-<version>.apk` from the [latest release](https://github.com/Yash-v-maurya/RoadBrowser/releases/latest) and install it on your phone (allow installs from your browser or file manager if asked).
-2. On the phone, open **Settings** and search for **Android Auto**.
-3. Scroll to the bottom and tap **Version** ten times. Tap **OK** to enable developer mode.
-4. Tap the **three-dot menu (⋮)** in the top-right corner, then **Developer settings**.
-5. Turn on **Unknown sources**.
-6. **Force-stop Android Auto** (App info > Force stop) or simply unplug and reconnect the phone.
-7. RoadBrowser now appears in the car launcher alongside your other apps.
+## ให้ PPBrowser ขึ้นใน Android Auto
 
-If it doesn't launch the first time, open a non-Google navigation app (for example Waze) on the head unit first, then open RoadBrowser.
+PPBrowser ไม่ใช่แอป Android Auto ที่ Google อนุมัติ จึงอาจต้องเปิด **Unknown sources** ใน Android Auto ก่อน:
 
-**Not showing up, or crashing?** Follow the [Android Auto Setup guide](docs/legal/android-auto-setup.md). The same checklist is built into the app under **Settings > Android Auto and help > Android Auto setup**, with a live status and a settings button for every step. If the app crashed, **Share crash report** on the same screen gives you the details to attach to an issue.
+1. บนมือถือ เปิด **Settings** แล้วค้นหา **Android Auto**
+2. เลื่อนลงล่างสุด แตะ **Version** 10 ครั้ง แล้วกด OK
+3. กดเมนู ⋮ → **Developer settings** → ติ๊ก **Unknown sources**
+4. ใน Android Auto ไปที่ **Customize launcher** แล้วติ๊ก PPBrowser
+5. ถอดสายแล้วเสียบใหม่ (หรือ force stop Android Auto)
 
-A longer walkthrough, including the adb route and OnePlus/ColorOS battery settings, is in [docs/INSTALL.md](docs/INSTALL.md).
+ในแอปก็มี checklist นี้อยู่ที่ **Settings → Android Auto and help → Android Auto setup** ส่วนรายละเอียดเต็มดูได้ที่ [docs/legal/android-auto-setup.md](docs/legal/android-auto-setup.md)
 
----
+## Build เองบนเครื่อง
 
-## Listening while driving
+ต้องมี **JDK 21** และ Android SDK **platform 37**
 
-Android Auto covers the browser with a "restricted while driving" screen as soon as the car moves, and RoadBrowser doesn't get around it. Audio keeps going: anything you started while parked carries on, and RoadBrowser's entry in Android Auto's **media** section lets you pick a quick link or bookmark and control playback with Android Auto's player or the steering wheel. See [Driving Safety](docs/legal/driving-safety.md).
-
-Both of these settings are **on by default**; you only need to check them if you've changed something.
-
-- **Settings > Media & playback > YouTube compatibility:** on. Mobile YouTube plays reliably on the head unit; the desktop site does not.
-- **Settings > Media & playback > Keep audio playing in background:** on. This is what keeps a video going when you switch to Maps or the launcher, and what turns on the media session so the **steering-wheel next / previous / play / pause buttons** and the phone's media notification control playback.
-- **OnePlus / ColorOS phones:** go to phone Settings > Apps > RoadBrowser > Battery and choose **Don't optimize** (or "Unrestricted"). Otherwise the OS may freeze the browser after a few minutes in the background and audio stops.
-
----
-
-## Screenshots
-
-<div align="center">
-  <img width="96" src="docs/img/icon_96.png" alt="RoadBrowser icon" />
-</div>
-
-<div align="center">
-  <img width="90%" src="docs/screenshots/start_page_light.png" alt="RoadBrowser start page in landscape, light theme" />
-</div>
-
----
-
-## Build from source
-
-Requirements: **JDK 21**, Android SDK with **platform 37** and a recent build-tools, and Git. The Gradle wrapper (Gradle 9.3, AGP 9.1) downloads everything else.
-
-```powershell
-git clone https://github.com/Yash-v-maurya/RoadBrowser.git
-cd RoadBrowser
-.\gradlew.bat assembleDebug      # debug build
-.\gradlew.bat assembleRelease    # signed release build (needs a keystore, see below)
+```bash
+./gradlew assembleDebug    # APK สำหรับทดสอบ
+./gradlew bundleRelease    # AAB ที่เซ็นแล้ว (ต้องตั้ง RELEASE_* ใน local.properties หรือ environment ก่อน)
+./gradlew test             # unit tests
 ```
-
-On macOS/Linux use `./gradlew` instead of `.\gradlew.bat`.
-
-### Signing a release build
-
-The release signing config in `app/build.gradle.kts` reads these four keys from Gradle properties, from `local.properties`, or from environment variables (in that order):
-
-```properties
-RELEASE_STORE_FILE=../release.keystore
-RELEASE_STORE_PASSWORD=your-store-password
-RELEASE_KEY_ALIAS=your-key-alias
-RELEASE_KEY_PASSWORD=your-key-password
-```
-
-Put them in `local.properties` at the repo root (it is git-ignored). `RELEASE_STORE_FILE` is resolved relative to the `app/` module, so `../release.keystore` points at a keystore sitting next to `local.properties`.
-
-The signed APK is written to:
-
-```
-app/build/renamedApks/release/RoadBrowser-<version>.apk
-```
-
-### Cutting a release
-
-1. Bump `versionCode` and `versionName` in `app/build.gradle.kts`.
-2. Update `CHANGELOG.md`.
-3. Tag and push:
-
-   ```bash
-   git tag v2.2
-   git push --tags
-   ```
-
-4. The `release.yml` workflow builds, signs and publishes a GitHub Release with the APK attached. It needs four repository secrets (Settings > Secrets and variables > Actions):
-
-   | Secret | Value |
-   | --- | --- |
-   | `RELEASE_KEYSTORE_BASE64` | The keystore file, base64-encoded |
-   | `RELEASE_STORE_PASSWORD` | Keystore password |
-   | `RELEASE_KEY_ALIAS` | Key alias inside the keystore |
-   | `RELEASE_KEY_PASSWORD` | Key password |
-
-   To copy the base64 keystore to the clipboard on Windows:
-
-   ```powershell
-   [Convert]::ToBase64String([IO.File]::ReadAllBytes("release.keystore")) | Set-Clipboard
-   ```
-
----
-
-## Security
-
-The only official source for RoadBrowser is **https://github.com/Yash-v-maurya/RoadBrowser**. Download APKs only from that repository's Releases page (or through Obtainium pointed at it). Any other site offering "RoadBrowser" is not affiliated with this project, and its APKs may be modified.
-
----
-
-## Legal
-
-- [Android Auto Setup](docs/legal/android-auto-setup.md): making RoadBrowser show up in the car, plus troubleshooting.
-- [Privacy Policy](docs/legal/privacy.md): no accounts, no analytics, nothing sent to the developer.
-- [Terms of Use](docs/legal/terms.md)
-- [Driving Safety](docs/legal/driving-safety.md)
-- [Open-Source Notices](docs/legal/notices.md)
-
-The same pages ship inside the app under **Settings > Legal** and open offline. They are generated from the Markdown files with `python scripts/build_legal.py`.
-
----
 
 ## License
 
-RoadBrowser is free software under the **GNU General Public License v3.0**. See [LICENSE](LICENSE).
-
-Made by Yash V Maurya
+GPLv3 ถ้าส่งแอปให้คนอื่นใช้ ต้องให้ซอร์สโค้ดกับคนนั้นได้เมื่อขอ ฟอนต์ Overpass ใช้ SIL OFL 1.1 ([docs/licenses/OFL_Overpass.txt](docs/licenses/OFL_Overpass.txt))

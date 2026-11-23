@@ -19,10 +19,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io")
     }
 }
 
-rootProject.name = "RoadBrowser"
+rootProject.name = "PPBrowser"
 include(":app")
  

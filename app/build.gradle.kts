@@ -10,15 +10,15 @@ plugins {
 }
 
 android {
-    namespace = "com.yashmaurya.roadbrowser"
+    namespace = "com.danupon.ppbrowser"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.yashmaurya.roadbrowser"
+        applicationId = "com.danupon.ppbrowser"
         minSdk = 35
         targetSdk = 37
-        versionCode = 13
-        versionName = "2.4.0"
+        versionCode = 1
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,7 +83,7 @@ android {
     androidComponents {
         onVariants { variant ->
             val vNameStr = android.defaultConfig.versionName ?: "unknown"
-            val appNameStr = "RoadBrowser"
+            val appNameStr = "PPBrowser"
             val isDebug = variant.buildType == "debug"
             val debugSuffixStr = if (isDebug) "_debug" else ""
 
@@ -128,7 +128,6 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.google.oss.licenses)
-    implementation("com.github.woheller69:FreeDroidWarn:V1.+")
 
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)

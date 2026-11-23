@@ -77,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/start_page_headline"
-                            android:textAppearance="@style/TextAppearance.RoadBrowser.TitleLarge"
+                            android:textAppearance="@style/TextAppearance.PPBrowser.TitleLarge"
                             android:letterSpacing="-0.01"
                             android:textColor="?attr/colorOnSurface" />
 

@@ -1,4 +1,4 @@
-# RoadBrowser Shields - bundled ad & tracker domain list
+# PPBrowser Shields - bundled ad & tracker domain list
 # One domain per line. Subdomains are matched automatically, so "doubleclick.net"
 # also covers "stats.g.doubleclick.net". Lines starting with # are ignored.
 #
