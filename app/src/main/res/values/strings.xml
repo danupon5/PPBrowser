@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">RoadBrowser</string>
-    <string name="app_credit">RoadBrowser — by Yash V Maurya</string>
+    <string name="app_name">PPBrowser</string>
+    <string name="app_credit">PPBrowser — based on RoadBrowser by Yash V Maurya (GPL-3.0)</string>
     <string name="author_name">Yash V Maurya</string>
-    <string name="menu_title">RoadBrowser</string>
+    <string name="menu_title">PPBrowser</string>
     <string name="menu_close">Close</string>
     <string name="menu_address_label">Address or search</string>
     <string name="toolbar_address_hint">Search or URL</string>

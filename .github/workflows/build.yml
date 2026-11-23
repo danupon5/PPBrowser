@@ -1,9 +1,11 @@
 name: Build
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+      - feature/ppbrowser-branding
   pull_request:
     branches:
       - main
@@ -46,7 +48,7 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: RoadBrowser-debug
+          name: PPBrowser-debug
           path: app/build/renamedApks/debug/*.apk
           if-no-files-found: warn
 

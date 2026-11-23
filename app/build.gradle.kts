@@ -14,7 +14,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.yashmaurya.roadbrowser"
+        applicationId = "com.danupon.ppbrowser"
         minSdk = 35
         targetSdk = 37
         versionCode = 13
@@ -83,7 +83,7 @@ android {
     androidComponents {
         onVariants { variant ->
             val vNameStr = android.defaultConfig.versionName ?: "unknown"
-            val appNameStr = "RoadBrowser"
+            val appNameStr = "PPBrowser"
             val isDebug = variant.buildType == "debug"
             val debugSuffixStr = if (isDebug) "_debug" else ""
 

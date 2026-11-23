@@ -1,3 +1,17 @@
+# PPBrowser
+
+PPBrowser is an experimental Android browser fork of [RoadBrowser](https://github.com/Yash-v-maurya/RoadBrowser), maintained at [danupon5/ppbrowser](https://github.com/danupon5/ppbrowser).
+
+**Status:** Initial rebranding for testing. Builds and Android Auto compatibility are not yet verified. Use video only while safely parked; do not watch video while driving.
+
+**License:** GNU GPL-3.0. Original RoadBrowser project and credits remain acknowledged. Source code for modified versions is available in this repository.
+
+**Important:** The upstream APK and upstream in-app update mechanism belong to RoadBrowser and are not PPBrowser releases. Do not install upstream APKs expecting PPBrowser branding. PPBrowser debug APKs, once CI succeeds, will be available as GitHub Actions artifacts.
+
+---
+
+## Upstream RoadBrowser documentation (reference only)
+
 # RoadBrowser
 
 **A WebView browser built for Android Auto head units: big touch targets, a car-first toolbar, and video that keeps playing when Maps takes over the screen.**

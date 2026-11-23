@@ -23,6 +23,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RoadBrowser"
+rootProject.name = "PPBrowser"
 include(":app")
  
