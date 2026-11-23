@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - feature/ppbrowser-branding
   pull_request:
     branches:
       - main
