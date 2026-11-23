@@ -73,6 +73,9 @@ jobs:
           name: PPBrowser-play-bundle
           path: out/*.aab
           if-no-files-found: error
+          # The repo is public and anyone signed in to GitHub can download artifacts,
+          # so keep the bundle only long enough to upload it to Play Console.
+          retention-days: 1
 
       - name: Remove keystore
         if: always()
