@@ -54,6 +54,9 @@ android {
         create("car") {
             dimension = "distribution"
             versionNameSuffix = "-car"
+            // Play Console rejects a version code it has already seen, so the car build uses
+            // its own range (1000 + the play version code).
+            versionCode = 1000 + (defaultConfig.versionCode ?: 0)
         }
     }
 

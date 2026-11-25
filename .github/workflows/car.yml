@@ -63,7 +63,7 @@ jobs:
       - name: Name the files
         run: |
           VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
-          CODE=$(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts)
+          CODE=$((1000 + $(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts | head -1)))
           mkdir -p out
           cp app/build/outputs/bundle/carRelease/app-car-release.aab "out/PPBrowser-car-${VERSION}-${CODE}.aab"
           cp app/build/renamedApks/carRelease/*.apk "out/PPBrowser-car-${VERSION}-${CODE}.apk"
