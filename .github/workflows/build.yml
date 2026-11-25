@@ -3,9 +3,6 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - feature/ppbrowser-branding
   pull_request:
     branches:
       - main
@@ -51,6 +48,7 @@ jobs:
           name: PPBrowser-debug
           path: app/build/renamedApks/debug/*.apk
           if-no-files-found: warn
+          retention-days: 1
 
       - name: Upload unit test reports
         if: always()

@@ -2,17 +2,17 @@
 
 **Effective 30 September 2026**
 
-RoadBrowser is a web browser for Android phones and Android Auto, made by Yash V Maurya. This policy explains what happens to your information when you use it.
+PPBrowser is a web browser for Android phones and Android Auto, based on RoadBrowser by Yash V Maurya and distributed privately through Google Play. This policy explains what happens to your information when you use it.
 
-**The short version:** RoadBrowser has no accounts, no analytics, no advertising and no servers. The developer never receives any of your data. What you do in the browser stays on your phone, apart from what websites receive when you visit them.
+**The short version:** PPBrowser has no accounts, no analytics, no advertising and no servers. The developer never receives any of your data. What you do in the browser stays on your phone, apart from what websites receive when you visit them.
 
 ## 1. What the developer collects
 
-Nothing. RoadBrowser contains no analytics, crash reporting, advertising or tracking code, and it never sends anything to the developer or to any server the developer runs.
+Nothing. PPBrowser contains no analytics, crash reporting, advertising or tracking code, and it never sends anything to the developer or to any server the developer runs.
 
 ## 2. What is stored on your phone
 
-To work as a browser, RoadBrowser keeps the following in its private storage on your phone. Other apps can't read it, and it is never uploaded by the app.
+To work as a browser, PPBrowser keeps the following in its private storage on your phone. Other apps can't read it, and it is never uploaded by the app.
 
 - **Bookmarks and quick links** you save.
 - **Open tabs** (their addresses and titles), so they can be restored the next time you open the app.
@@ -27,12 +27,12 @@ To work as a browser, RoadBrowser keeps the following in its private storage on 
 
 ## 3. Connections the app makes
 
-RoadBrowser only goes online in these cases:
+PPBrowser only goes online in these cases:
 
 - **Websites you open.** Your phone connects directly to each site and to anything that page loads (images, scripts, video). Those sites receive your IP address, your browser details (the user agent), cookies they set and anything you type into them. Their own privacy policies apply. Shields blocks known ad and tracker domains, but no blocker catches everything.
 - **Search.** Text you type in the address bar that isn't a web address goes to the search engine you picked: Brave Search by default, or Google or DuckDuckGo.
 - **Site icons.** To show icons on quick links, bookmarks and the Android Auto list, the app downloads each icon directly from that site.
-- **Updates.** Only when you open "Check for updates" in the menu, the app asks GitHub's public API for the latest release. If you then tap "Download and install", the APK is downloaded from GitHub's release servers. GitHub receives your IP address, and GitHub's privacy statement applies.
+- **Updates.** Updates are delivered by Google Play. The app itself does not contact any update server; Google's privacy policy applies to Google Play.
 
 The app makes no other connections of its own.
 
@@ -44,8 +44,8 @@ Some parts of the browser are provided by Android and Google, and their own priv
 - **Voice input.** If a website offers voice input and you allow the microphone for that site, your speech goes to your phone's speech recognition service (often Google), which turns it into text for the page.
 - **Location.** A website only gets your location if it asks and you allow it for that site. The location comes from Android.
 - **Protected video (DRM).** To play protected video, Widevine licence requests go to the content provider's servers.
-- **Android Auto.** When your phone is connected to a car, Android Auto shows the app on the car screen. The title and artist of what is playing, and the names and icons in RoadBrowser's Android Auto list (last played page, quick links and bookmarks), are passed to Android Auto and the car screen so they can be shown and controlled. Playback controls also appear in your phone's notifications and on the lock screen.
-- **Backups.** If device backup is switched on, Android may include RoadBrowser's data (bookmarks, settings, tabs) in the backup saved to your Google account. You can control this in Android's backup settings.
+- **Android Auto.** When your phone is connected to a car, Android Auto shows the app on the car screen. The title and artist of what is playing, and the names and icons in PPBrowser's Android Auto list (last played page, quick links and bookmarks), are passed to Android Auto and the car screen so they can be shown and controlled. Playback controls also appear in your phone's notifications and on the lock screen.
+- **Backups.** If device backup is switched on, Android may include PPBrowser's data (bookmarks, settings, tabs) in the backup saved to your Google account. You can control this in Android's backup settings.
 
 ## 5. Permissions and why they are needed
 
@@ -58,7 +58,6 @@ Some parts of the browser are provided by Android and Google, and their own priv
 | Foreground service (media playback) | Keeps audio playing and steering-wheel buttons working when the browser isn't on screen. |
 | Change audio settings | Used for web audio and voice input. |
 | Car app permissions | Declared so the app can run on an Android Auto car screen. |
-| Install updates | Lets RoadBrowser hand an official update to Android's installer when you tap "Download and install". Android asks you to allow it the first time and to confirm every install. |
 
 ## 6. Selling and sharing
 
@@ -68,17 +67,17 @@ The developer does not sell, rent or share personal data. Since nothing is colle
 
 - **Settings > Privacy and site data**: delete cookies and site data, reset saved site permissions, or reset the plain-HTTP sites you allowed.
 - **Bookmarks and quick links**: remove them in the bookmark manager. **Tabs**: close them.
-- **Everything**: in Android Settings, open Apps > RoadBrowser > Storage and clear storage, or uninstall the app.
+- **Everything**: in Android Settings, open Apps > PPBrowser > Storage and clear storage, or uninstall the app.
 
 The developer holds no data about you, so there is nothing to request, correct or delete on the developer's side. This applies to the rights you have under laws such as the GDPR, the CCPA and India's Digital Personal Data Protection Act.
 
 ## 8. Children
 
-RoadBrowser is a general-purpose web browser and is not aimed at children under 13. It doesn't knowingly collect information from anyone.
+PPBrowser is a general-purpose web browser and is not aimed at children under 13. It doesn't knowingly collect information from anyone.
 
 ## 9. Security
 
-App data is kept in RoadBrowser's private storage, protected by Android. Pages loaded over plain HTTP are not encrypted, so RoadBrowser asks before opening them and warns you about certificate problems on HTTPS sites.
+App data is kept in PPBrowser's private storage, protected by Android. Pages loaded over plain HTTP are not encrypted, so PPBrowser asks before opening them and warns you about certificate problems on HTTPS sites.
 
 ## 10. Data safety summary
 
@@ -96,6 +95,6 @@ When this policy changes, the new version ships with the app and is published in
 
 ## 12. Contact
 
-Questions about this policy: open an issue at [github.com/Yash-v-maurya/RoadBrowser/issues](https://github.com/Yash-v-maurya/RoadBrowser/issues).
+Questions about this policy: use the developer contact shown on the Google Play page.
 
 See also: [Android Auto Setup](android-auto-setup.md) · [Terms of Use](terms.md) · [Driving Safety](driving-safety.md) · [Open-Source Notices](notices.md)

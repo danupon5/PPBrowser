@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- RoadBrowser: cream paper, warm ink, instrument-cluster amber. Surfaces get lighter as they rise. -->
+<!-- PPBrowser: cream paper, warm ink, instrument-cluster amber. Surfaces get lighter as they rise. -->
 <resources>
     <color name="theme_primary">#8A5A0E</color>
     <color name="theme_on_primary">#FFFFFF</color>

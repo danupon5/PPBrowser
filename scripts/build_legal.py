@@ -33,7 +33,7 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{title} · RoadBrowser</title>
+<title>{title} · PPBrowser</title>
 <style>
   /* First source serves the download site, second the copy bundled in the app. */
   @font-face {{
@@ -100,14 +100,14 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
 <div class="wrap">
   <header>
-    <div class="brand">RoadBrowser</div>
+    <div class="brand">PPBrowser</div>
     <nav>{nav}</nav>
     <div class="roadrule"></div>
   </header>
   <main>
 {body}
   </main>
-  <footer>Made by Yash V Maurya · <a href="https://github.com/Yash-v-maurya/RoadBrowser">github.com/Yash-v-maurya/RoadBrowser</a></footer>
+  <footer>PPBrowser · a modified version of <a href="https://github.com/Yash-v-maurya/RoadBrowser">RoadBrowser</a> by Yash V Maurya (GPLv3)</footer>
 </div>
 </body>
 </html>

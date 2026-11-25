@@ -12,11 +12,9 @@
     <uses-permission android:name="androidx.car.app.MAP_TEMPLATES" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Installing official updates from GitHub releases; Android asks the user every time. -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name=".RoadBrowserApp"
+        android:name=".PPBrowserApp"
         android:allowBackup="true"
         android:appCategory="productivity"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,7 +26,7 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.RoadBrowser">
+        android:theme="@style/Theme.PPBrowser">
         <meta-data
             android:name="distractionOptimized"
             android:value="true" />
@@ -48,7 +46,7 @@
             android:exported="true"
             android:resizeableActivity="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.RoadBrowser">
+            android:theme="@style/Theme.PPBrowser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -68,7 +66,7 @@
                 <data android:scheme="http" />
                 <data android:scheme="https" />
             </intent-filter>
-            <!-- "Play <name> on RoadBrowser" from the phone's assistant; handed to the media service. -->
+            <!-- "Play <name> on PPBrowser" from the phone's assistant; handed to the media service. -->
             <intent-filter>
                 <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -104,32 +102,28 @@
             android:name=".settings.SettingsActivity"
             android:exported="false"
             android:label="@string/settings_title"
-            android:theme="@style/Theme.RoadBrowser" />
+            android:theme="@style/Theme.PPBrowser" />
 
         <activity
             android:name=".settings.WelcomeActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.RoadBrowser" />
+            android:theme="@style/Theme.PPBrowser" />
 
         <activity
             android:name=".settings.CarSetupActivity"
             android:exported="false"
             android:label="@string/car_setup_title"
-            android:theme="@style/Theme.RoadBrowser" />
+            android:theme="@style/Theme.PPBrowser" />
 
         <activity
             android:name=".settings.LegalActivity"
             android:exported="false"
             android:label="@string/settings_legal"
-            android:theme="@style/Theme.RoadBrowser" />
+            android:theme="@style/Theme.PPBrowser" />
 
-        <!-- Also RoadBrowser's entry in Android Auto's media screen, which stays usable while
+        <!-- Also PPBrowser's entry in Android Auto's media screen, which stays usable while
              driving; onGetRoot only lets Android Auto and the system browse it. -->
-        <receiver
-            android:name=".update.UpdateInstallReceiver"
-            android:exported="false" />
-
         <service
             android:name=".media.MediaPlaybackService"
             android:exported="true"
@@ -142,7 +136,7 @@
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
             android:exported="false"
-            android:theme="@style/Theme.RoadBrowser" />
+            android:theme="@style/Theme.PPBrowser" />
 
     </application>
 
