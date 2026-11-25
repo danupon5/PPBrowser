@@ -44,6 +44,19 @@ android {
         }
     }
 
+    // "play": what Google Play accepts (no Android Auto media-app metadata).
+    // "car": full Android Auto setup, for Play Console Internal app sharing or direct APK install.
+    flavorDimensions += "distribution"
+    productFlavors {
+        create("play") {
+            dimension = "distribution"
+        }
+        create("car") {
+            dimension = "distribution"
+            versionNameSuffix = "-car"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -85,7 +98,8 @@ android {
             val vNameStr = android.defaultConfig.versionName ?: "unknown"
             val appNameStr = "PPBrowser"
             val isDebug = variant.buildType == "debug"
-            val debugSuffixStr = if (isDebug) "_debug" else ""
+            val flavorPart = if (variant.flavorName == "car") "_car" else ""
+            val debugSuffixStr = flavorPart + if (isDebug) "_debug" else ""
 
             val renameTaskProvider = tasks.register<RenameApkTask>("${variant.name}RenameApk") {
                 inputDir.set(variant.artifacts.get(SingleArtifact.APK))
@@ -123,6 +137,7 @@ dependencies {
     implementation(libs.androidx.webkit)
     implementation(libs.google.material)
     implementation(libs.zxing.core)
+    "carImplementation"(libs.androidx.car.app)
 
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)

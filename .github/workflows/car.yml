@@ -1,0 +1,84 @@
+name: Car build (Internal app sharing)
+
+# Builds the "car" flavor: the full Android Auto setup that Google Play's normal tracks reject.
+# Run it from the Actions tab ("Run workflow"), download the "PPBrowser-car" artifact and upload
+# the .aab (or .apk) in Play Console > Internal app sharing. Not for Internal testing / Production.
+#
+# Needs these repository secrets (Settings > Secrets and variables > Actions):
+#   RELEASE_KEYSTORE_BASE64  the upload keystore, base64-encoded
+#   RELEASE_STORE_PASSWORD   keystore password
+#   RELEASE_KEY_ALIAS        key alias
+#   RELEASE_KEY_PASSWORD     key password
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bundle:
+    name: Build signed car AAB and APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      # The runner image already ships the Android SDK; android-actions/setup-android
+      # fails on its own licence step, so accept the licences directly instead.
+      - name: Accept Android SDK licences
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Decode upload keystore
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$RELEASE_KEYSTORE_BASE64" ]; then
+            echo "RELEASE_KEYSTORE_BASE64 secret is not set" >&2
+            exit 1
+          fi
+          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > release.keystore
+
+      - name: Build car bundle and APK
+        env:
+          # rootProject.file() resolves relative paths from the repo root, so pass an absolute path.
+          RELEASE_STORE_FILE: ${{ github.workspace }}/release.keystore
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: ./gradlew bundleCarRelease assembleCarRelease --no-daemon --stacktrace
+
+      - name: Name the files
+        run: |
+          VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          CODE=$(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts)
+          mkdir -p out
+          cp app/build/outputs/bundle/carRelease/app-car-release.aab "out/PPBrowser-car-${VERSION}-${CODE}.aab"
+          cp app/build/renamedApks/carRelease/*.apk "out/PPBrowser-car-${VERSION}-${CODE}.apk"
+          ls -l out
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: PPBrowser-car
+          path: out/*
+          if-no-files-found: error
+          # The repo is public and anyone signed in to GitHub can download artifacts,
+          # so keep the bundle only long enough to upload it to Play Console.
+          retention-days: 1
+
+      - name: Remove keystore
+        if: always()
+        run: rm -f release.keystore
