@@ -58,14 +58,14 @@ jobs:
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-        run: ./gradlew bundleRelease --no-daemon --stacktrace
+        run: ./gradlew bundlePlayRelease --no-daemon --stacktrace
 
       - name: Name the bundle
         run: |
           VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
           CODE=$(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts)
           mkdir -p out
-          cp app/build/outputs/bundle/release/app-release.aab "out/PPBrowser-${VERSION}-${CODE}.aab"
+          cp app/build/outputs/bundle/playRelease/app-play-release.aab "out/PPBrowser-${VERSION}-${CODE}.aab"
           ls -l out
 
       - name: Upload bundle
