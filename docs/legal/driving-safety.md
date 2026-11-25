@@ -11,8 +11,7 @@ Android Auto covers PPBrowser with its "restricted while driving" screen, and wo
 Audio can keep playing, like it would from any music app:
 
 1. **Before you set off**, start what you want to hear while parked. It keeps playing when you pull away.
-2. Or, on the Android Auto screen, open **PPBrowser in the media section**. Its list shows the page you last played, your quick links and your bookmarks. Pick one and it plays in the background. Nothing from the page is shown on the car screen.
-3. Use the **steering-wheel buttons**, Android Auto's play, pause and skip buttons, or voice commands. Don't reach for the phone.
+2. Use the **steering-wheel buttons**, the phone's media notification, or voice commands. Don't reach for the phone.
 
 Video pages only play their sound while you drive.
 

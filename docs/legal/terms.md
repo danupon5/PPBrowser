@@ -16,7 +16,7 @@ PPBrowser is free software released under the [GNU General Public License, versi
 
 - **Don't watch, read or browse while driving.** Use PPBrowser's screen only when you are safely parked, or as a passenger.
 - While the car is moving, Android Auto covers the browser with its "restricted while driving" screen. That is Android Auto's safety rule. Don't try to get around it.
-- Listening to audio through Android Auto's media screen works like any music app. Set things up before you drive, keep interactions brief, and use the steering-wheel buttons or voice where you can.
+- Listening to audio while you drive works like any music app. Set things up before you drive, keep interactions brief, and use the steering-wheel buttons or voice where you can.
 - Always follow the traffic laws where you drive.
 
 More detail is on the [Driving Safety](driving-safety.md) page.

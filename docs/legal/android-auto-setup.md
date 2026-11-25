@@ -26,7 +26,7 @@ In PPBrowser, **Settings > Android Auto setup > Open Android Auto settings** tak
 
 ## Step 3: Make sure PPBrowser is in the car launcher
 
-In Android Auto's settings, open **Customize launcher** and make sure **PPBrowser** is ticked. PPBrowser also shows up among the media apps, which is the part you use for listening while driving.
+In Android Auto's settings, open **Customize launcher** and make sure **PPBrowser** is ticked.
 
 ## Step 4: Phone settings that keep audio playing
 
@@ -52,7 +52,7 @@ Updates install over the old version and keep your bookmarks and settings.
 ## Using it in the car
 
 - **Parked:** open PPBrowser from the car launcher for the full browser.
-- **Driving:** Android Auto locks the browser screen while the car moves. Audio you started keeps playing, and PPBrowser in the media section lets you pick your quick links and bookmarks and control them with Android Auto's player or the steering wheel. See [Driving Safety](driving-safety.md).
+- **Driving:** Android Auto locks the browser screen while the car moves. Audio you started keeps playing, and the steering-wheel buttons and the phone's media notification control it. See [Driving Safety](driving-safety.md).
 
 ## Troubleshooting
 
@@ -77,10 +77,6 @@ Work down this list:
 ### Audio stops after a few minutes
 
 Check the battery setting in step 4 and that **Keep audio playing in background** is on.
-
-### A page picked in the car's media list stays silent
-
-Some players only start after a tap on their own play button. For those, start playback while parked; it keeps playing when you drive off.
 
 ### "App not installed" when updating
 
