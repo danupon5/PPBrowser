@@ -53,7 +53,8 @@ jobs:
 
       - name: Build release bundle
         env:
-          RELEASE_STORE_FILE: ../release.keystore
+          # rootProject.file() resolves relative paths from the repo root, so pass an absolute path.
+          RELEASE_STORE_FILE: ${{ github.workspace }}/release.keystore
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
